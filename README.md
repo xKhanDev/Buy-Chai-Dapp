@@ -1,13 +1,4 @@
-# Sample Hardhat Project
+# My First Dapp Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+In This Dapp People can send me Their Massages and Also Ether Not Real Ethers😂.
+and also All Transaction and Massages displayed on UI with Name, Time, Message and Their Wallet Address.
