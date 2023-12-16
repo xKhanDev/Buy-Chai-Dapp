@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const NavBar = ({ state }) => {
+const NavBar = ({ state,textContent }) => {
     const [account, setAccount] = useState("Not Connected");
     const [isConnected, setIsConnected] = useState(false);
 

@@ -27,7 +27,7 @@ const App = () => {
           const contract = new ethers.Contract(contractAddress, contractAbi, signer);
           setState({ provider, signer, contract }); // Fixing the setState method call
         } else {
-          console.log('MetaMask or Ethereum browser extension not detected.');
+          window.alert("MetaMask Not Detected!")
         }
       }
       catch (err) {
@@ -43,7 +43,7 @@ const App = () => {
   return (
     <>
       <div className='h-screen bg-gradient-to-r from-blue-600 to-blue-900' style={{ width: "100%", overflowX:"hidden"}}>
-        < NavBar state={state}/>
+        < NavBar state={state} textContent={textContent}/>
         < Buy state={state} />
         < Memos state={state} />
       </div>
