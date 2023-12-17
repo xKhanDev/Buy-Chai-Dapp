@@ -48,8 +48,8 @@ const App = () => {
         {
           isMobile ? (
             <div>
-              <marquee behavior="" direction="right" className='w-full h-12 p-2 absolute top-0 bg-white text-red-700 font-bold text-center'> Please Open In Desktop</marquee>
-              <NavBar state={state} connectWallet={connectWallet} className="mt-16"/>
+              <marquee behavior="" direction="right" className='w-full h-12 p-2 bg-white text-red-700 font-bold text-center'> Please Open In Desktop</marquee>
+              <NavBar state={state} connectWallet={connectWallet}/>
               < Buy state={state} />
               < Memos state={state} />
             </div>
