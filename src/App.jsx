@@ -48,8 +48,8 @@ const App = () => {
         {
           isMobile ? (
             <div>
-              <span className='w-full h-12 p-2 absolute top-0 bg-white text-red-700'>Please Open In Desktop</span>
-              <NavBar state={state} connectWallet={connectWallet} />
+              <span className='w-full h-12 p-2 absolute top-0 bg-white text-red-700 font-bold text-center'>Please Open In Desktop</span>
+              <NavBar state={state} connectWallet={connectWallet} className="mt-16"/>
               < Buy state={state} />
               < Memos state={state} />
             </div>
