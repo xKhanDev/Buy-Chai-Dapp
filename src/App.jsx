@@ -6,11 +6,14 @@ import Memos from './components/Memos';
 import NavBar from './components/NavBar';
 
 const App = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   const [state, setState] = useState({
     provider: null,
     signer: null,
     contract: null
   });
+
 
   const connectWallet = async () => {
     const contractAddress = `0x2e21608d33dc0efccf12b2198c2a24128f11901f`;
@@ -34,17 +37,31 @@ const App = () => {
     }
   };
 
-
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(/iphone|ipad|ipod|android/.test(userAgent));
+  }, []);
 
   return (
     <>
       <div className='h-screen bg-gradient-to-r from-blue-600 to-blue-900' style={{ width: "100%", overflowX: "hidden" }}>
-      <NavBar state={state} connectWallet={connectWallet} />
-        < Buy state={state} />
-        < Memos state={state} />
+        {
+          isMobile ? (
+            <div>
+              <span className='w-full h-12 p-2 absolute top-0 bg-white text-red-700'>Please Open In Desktop</span>
+              <NavBar state={state} connectWallet={connectWallet} />
+              < Buy state={state} />
+              < Memos state={state} />
+            </div>
+          ) : (
+            <div>
+              <NavBar state={state} connectWallet={connectWallet} />
+              < Buy state={state} />
+              < Memos state={state} />
+            </div>)
+        }
       </div>
     </>
-  );
-};
+)}
 
 export default App;
