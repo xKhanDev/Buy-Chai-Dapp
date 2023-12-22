@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import abi from "./Contracts/chai.json";
 import { ethers } from "ethers";
 import Buy from './components/Buy';
@@ -6,7 +6,6 @@ import Memos from './components/Memos';
 import NavBar from './components/NavBar';
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
 
   const [state, setState] = useState({
     provider: null,
@@ -37,31 +36,19 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    setIsMobile(/iphone|ipad|ipod|android/.test(userAgent));
-  }, []);
-
   return (
     <>
       <div className='h-screen bg-gradient-to-r from-blue-600 to-blue-900' style={{ width: "100%", overflowX: "hidden" }}>
-        {
-          isMobile ? (
-            <div>
-              <marquee behavior="" direction="right" className='w-full h-12 p-2 bg-white text-red-700 font-bold text-center'> Please Open In Desktop</marquee>
-              <NavBar state={state} connectWallet={connectWallet}/>
-              < Buy state={state} />
-              < Memos state={state} />
-            </div>
-          ) : (
-            <div>
-              <NavBar state={state} connectWallet={connectWallet} />
-              < Buy state={state} />
-              < Memos state={state} />
-            </div>)
-        }
+
+        <div>
+          <NavBar state={state} connectWallet={connectWallet} />
+          < Buy state={state} />
+          < Memos state={state} />
+        </div>
+
       </div>
     </>
-)}
+  )
+}
 
 export default App;
